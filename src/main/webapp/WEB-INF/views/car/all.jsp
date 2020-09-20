@@ -32,22 +32,22 @@
     <c:forEach items="${cars}" var="car">
         <tr>
             <td>${car.id}</td>
-            <td>${car.modelCar}</td>
-            <td>${car.vinNumber}</td>
-            <td>${car.licensePlate}</td>
-            <td>${car.chassisNumber}</td>
-            <td>${car.engineNumber}</td>
-            <td>${car.typeOfCar}</td>
-            <td>${car.fuelType}</td>
-            <td>${car.yearOfProduction}</td>
-            <td>${car.engineCapacity}</td>
-            <td>${car.numberOfSeats}</td>
-            <td>${car.hasGPS}</td>
+            <td>${car.carDetails.modelCar}</td>
+            <td>${car.carDetails.vinNumber}</td>
+            <td>${car.carDetails.licensePlate}</td>
+            <td>${car.carDetails.chassisNumber}</td>
+            <td>${car.carDetails.engineNumber}</td>
+            <td>${car.carDetails.typeOfCar}</td>
+            <td>${car.carDetails.fuelType}</td>
+            <td>${car.carDetails.yearOfProduction}</td>
+            <td>${car.carDetails.engineCapacity}</td>
+            <td>${car.carDetails.numberOfSeats}</td>
+            <td>${car.carDetails.hasGPS}</td>
             <td>${car.ocPolicyExpireDate}</td>
             <td>${car.acPolicyExpireDate}</td>
-            <td>${car.insuranceCompany}</td>
-            <td>${car.carSecurity}</td>
-            <td>${car.yearOfFirstRegistration}</td>
+            <td>${car.carDetails.insuranceCompany}</td>
+            <td>${car.carDetails.carSecurity}</td>
+            <td>${car.carDetails.yearOfFirstRegistration}</td>
             <td>${car.nextTechnicalInspectionDate}</td>
             <td>${car.comments}</td>
         </tr>

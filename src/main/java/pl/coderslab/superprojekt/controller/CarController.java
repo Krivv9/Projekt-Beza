@@ -1,4 +1,4 @@
-package pl.coderslab.superprojekt.controllers;
+package pl.coderslab.superprojekt.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,8 +6,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.superprojekt.model.Car;
 import pl.coderslab.superprojekt.model.MonthUse;
-import pl.coderslab.superprojekt.repositories.CarRepository;
-import pl.coderslab.superprojekt.repositories.MonthUseRepository;
+import pl.coderslab.superprojekt.repository.CarRepository;
+import pl.coderslab.superprojekt.repository.MonthUseRepository;
 
 import javax.validation.Valid;
 

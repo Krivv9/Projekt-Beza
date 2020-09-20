@@ -2,12 +2,14 @@ package pl.coderslab.superprojekt.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 
 @Entity @Setter @Getter
+@Table(name = User.TABLE)
 public class User {
+    public final static String TABLE = "users";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

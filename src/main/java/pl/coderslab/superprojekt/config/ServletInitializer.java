@@ -1,4 +1,4 @@
-package pl.coderslab.superprojekt;
+package pl.coderslab.superprojekt.config;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

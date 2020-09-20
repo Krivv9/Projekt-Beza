@@ -1,4 +1,4 @@
-package pl.coderslab.superprojekt;
+package pl.coderslab.superprojekt.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

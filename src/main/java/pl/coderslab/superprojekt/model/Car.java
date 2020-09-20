@@ -22,41 +22,10 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String modelCar;
-
-    @Column(nullable = false)
-    private String typeOfCar;
-
-    @Size(min = 2,max = 9)
-    @Column(nullable = false)
-    private String licensePlate;
-
-    @Size(min = 17, max = 17)
-    @Column(nullable = false)
-    private String vinNumber;
-
-    @Column(nullable = false)
-    private String chassisNumber;
-
-    @Column(nullable = false)
-    private String engineNumber;
-
-    @Column(nullable = false)
-    private String yearOfProduction;
-
-    @Column(nullable = false)
-    private String engineCapacity;
-
-    @Column(nullable = false)
-    private String numberOfSeats;
-
-    @Column(nullable = false)
-    private String fuelType;
-
+    @Column(name = "expire_date_oc", nullable = false)
     private Date ocPolicyExpireDate;
 
-    public void setOcPolicyExpireDate(String ocPolicyExpireDate){
+    public void setOcPolicyExpireDate(String ocPolicyExpireDate) {
         try {
             this.ocPolicyExpireDate = new SimpleDateFormat("yyyy-MM-dd").parse(ocPolicyExpireDate);
         } catch (ParseException e) {
@@ -64,9 +33,10 @@ public class Car {
         }
     }
 
+    @Column(name = "expire_date_ac", nullable = false)
     private Date acPolicyExpireDate;
 
-    public void setAcPolicyExpireDate(String acPolicyExpireDate){
+    public void setAcPolicyExpireDate(String acPolicyExpireDate) {
         try {
             this.acPolicyExpireDate = new SimpleDateFormat("yyyy-MM-dd").parse(acPolicyExpireDate);
         } catch (ParseException e) {
@@ -74,25 +44,22 @@ public class Car {
         }
     }
 
-    private String insuranceCompany;
-    private String hasGPS;
-    private String carSecurity;
-
+    @Column(name = "next_tech_insp_date", nullable = false)
     private Date nextTechnicalInspectionDate;
 
     public void setNextTechnicalInspectionDate(String nextTechnicalInspectionDate) {
         try {
-        this.nextTechnicalInspectionDate = new SimpleDateFormat("yyyy-MM-dd").parse(nextTechnicalInspectionDate);
-    } catch (ParseException e) {
-        e.printStackTrace();
+            this.nextTechnicalInspectionDate = new SimpleDateFormat("yyyy-MM-dd").parse(nextTechnicalInspectionDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
-    }
-
-    @Column(nullable = false)
-    private String yearOfFirstRegistration;
 
     @Size(max = 300)
+    @Column(name = "comments")
     private String comments;
+
+    private CarDetails carDetails;
 
     @OneToOne
     private MonthUse monthUse;

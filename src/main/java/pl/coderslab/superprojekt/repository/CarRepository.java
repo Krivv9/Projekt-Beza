@@ -1,4 +1,4 @@
-package pl.coderslab.superprojekt.repositories;
+package pl.coderslab.superprojekt.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import pl.coderslab.superprojekt.model.Car;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Repository
 @Transactional

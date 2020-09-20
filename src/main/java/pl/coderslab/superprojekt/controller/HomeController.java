@@ -1,4 +1,4 @@
-package pl.coderslab.superprojekt.controllers;
+package pl.coderslab.superprojekt.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

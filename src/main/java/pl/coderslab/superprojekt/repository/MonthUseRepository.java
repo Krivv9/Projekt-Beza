@@ -1,4 +1,4 @@
-package pl.coderslab.superprojekt.repositories;
+package pl.coderslab.superprojekt.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
