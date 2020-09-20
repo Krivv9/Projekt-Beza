@@ -9,6 +9,7 @@
 <table border="1">
     <tr>
         <td>Id</td>
+        <td>Właściciel pojazdu</td>
         <td>Marka</td>
         <td>Numer Vin</td>
         <td>Numer rejestracyjny</td>
@@ -32,6 +33,7 @@
     <c:forEach items="${cars}" var="car">
         <tr>
             <td>${car.id}</td>
+            <td>${car.owner.fullName}</td>
             <td>${car.carDetails.modelCar}</td>
             <td>${car.carDetails.vinNumber}</td>
             <td>${car.carDetails.licensePlate}</td>
@@ -50,6 +52,10 @@
             <td>${car.carDetails.yearOfFirstRegistration}</td>
             <td>${car.nextTechnicalInspectionDate}</td>
             <td>${car.comments}</td>
+            <td>
+                <a href="/car/connect/${car.id}">dodaj użytkownika i/lub kartę</a>
+                <a href="/car/connect/${car.id}">edytuj użytkownika i/lub kartę</a>
+            </td>
         </tr>
     </c:forEach>
 </table>

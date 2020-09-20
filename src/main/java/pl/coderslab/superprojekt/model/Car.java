@@ -15,12 +15,8 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name = Car.TABLE)
-public class Car {
+public class Car extends BaseEntity{
     public final static String TABLE = "cars";
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column(name = "expire_date_oc", nullable = false)
     private Date ocPolicyExpireDate;
@@ -65,7 +61,7 @@ public class Car {
     private MonthUse monthUse;
 
     @OneToOne
-    private User user;
+    private User owner;
 
     @OneToMany(mappedBy = "car")
     private List<FleetCard> fleetCard = new ArrayList<>();

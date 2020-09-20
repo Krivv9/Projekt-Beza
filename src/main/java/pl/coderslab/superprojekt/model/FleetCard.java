@@ -8,19 +8,15 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
-public class FleetCard {
+@Table(name = FleetCard.TABLE)
+public class FleetCard extends BaseEntity{
+    public final static String TABLE = "fleet_cards";
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "card_number", nullable = false)
+    private String cardNumber;
 
-    private Integer cardNumber;
-
-    @Column(nullable = false)
-    private Integer phoneNumber;
-
-    @Column(nullable = false)
-    private Integer pinCard;
+    @Column(name = "pin_card", nullable = false)
+    private String pinCard;
 
     @OneToOne
     private User user;

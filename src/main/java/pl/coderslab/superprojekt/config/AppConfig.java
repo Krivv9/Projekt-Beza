@@ -19,6 +19,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import pl.coderslab.superprojekt.converter.CarConverter;
+import pl.coderslab.superprojekt.converter.UserConverter;
 
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;
@@ -56,10 +57,16 @@ public class AppConfig implements WebMvcConfigurer {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getCarConverter());
+        registry.addConverter(getUserConverter());
     }
     @Bean
     public CarConverter getCarConverter() {
         return new CarConverter();
+    }
+
+    @Bean
+    public UserConverter getUserConverter() {
+        return new UserConverter();
     }
 
     @Bean

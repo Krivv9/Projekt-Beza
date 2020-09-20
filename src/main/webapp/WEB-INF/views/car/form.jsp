@@ -15,12 +15,13 @@
 <%--@elvariable id="car" type="pl.coderslab.superprojekt.model.Car"--%>
 <form:form method="post" modelAttribute="car">
     <form:hidden path="id"/>
+    <h2>Dane z dowodu rejestracyjnego:</h2>
+    Numer rejestracyjny: <form:input path="carDetails.licensePlate"/><br>
+    <form:errors path="carDetails.licensePlate" cssClass="error"/><br>
     Marka i model samochodu: <form:input path="carDetails.modelCar"/><br>
     <form:errors path="carDetails.modelCar" cssClass="error"/><br>
     Numer Vin: <form:input path="carDetails.vinNumber"/><br>
     <form:errors path="carDetails.vinNumber" cssClass="error"/><br>
-    Numer rejestracyjny: <form:input path="carDetails.licensePlate"/><br>
-    <form:errors path="carDetails.licensePlate" cssClass="error"/><br>
     Numer nadwozia: <form:input path="carDetails.chassisNumber"/><br>
     <form:errors path="carDetails.chassisNumber" cssClass="error"/><br>
     Numer silnika: <form:input path="carDetails.engineNumber"/><br>
@@ -58,7 +59,7 @@
     <form:errors path="carDetails.yearOfProduction" cssClass="error"/><br>
     Rok pierwszej rejestracji: <form:input path="carDetails.yearOfFirstRegistration"/><br>
     <form:errors path="carDetails.yearOfFirstRegistration" cssClass="error"/><br>
-    Uwagi: <form:input path="comments"/><br>
+    Uwagi: <form:textarea cols="15" rows="3" path="comments"/><br>
     <form:errors path="comments" cssClass="error"/><br>
     <input type="submit" value="Wyślij">
 </form:form>
