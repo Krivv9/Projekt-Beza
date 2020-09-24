@@ -12,4 +12,5 @@ import javax.transaction.Transactional;
 public interface CarRepository extends JpaRepository<Car, Long> {
 
     public Car findCarById(Long id);
+
 }
