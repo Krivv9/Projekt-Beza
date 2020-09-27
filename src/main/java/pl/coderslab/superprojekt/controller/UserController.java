@@ -37,13 +37,13 @@ public class UserController {
     @GetMapping("/add")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
-        return "user/form";
+        return "users/form";
     }
 
     @PostMapping("/add")
     public String saveCar(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "user/form";
+            return "users/form";
         }
         userService.saveUser(user);
         return "redirect:/users/all";
@@ -52,6 +52,6 @@ public class UserController {
     @RequestMapping("/all")
     public String getAll(Model model) {
         model.addAttribute("users", userService.findAll());
-        return "user/all";
+        return "users/all";
     }
 }

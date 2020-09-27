@@ -26,7 +26,7 @@ public class MonthUse extends BaseEntity{
     private Car car;
 
     @OneToOne
-    private User owner;
+    private User user;
 
     @Size(max = 300)
     private String comments;

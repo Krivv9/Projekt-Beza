@@ -40,12 +40,13 @@ public class CarService {
         carRepository.delete(car);
     }
 
-    public void addOwner(Car car, User owner) {
-        car.setOwner(owner);
+    public void addUser(Car car, User user) {
+        car.setUser(user);
     }
 
     public void addCard(Car car, List<FleetCard> cards) {
         car.setFleetCard(cards);
+        carRepository.save(car);
     }
 
     public List<Car> getAllWithOwners() {
@@ -53,7 +54,7 @@ public class CarService {
         carWithOwners
                 .forEach(car -> Hibernate.initialize(car.getFleetCard()));
         carWithOwners
-                .forEach(car -> Hibernate.initialize(car.getOwner()));
+                .forEach(car -> Hibernate.initialize(car.getUser()));
         return carWithOwners;
     }
 }

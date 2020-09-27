@@ -23,26 +23,28 @@ public class LoginController {
     @GetMapping({"/", "/login"})
     public String login(Model model){
         model.addAttribute("user", new User());
-        return "user/login";
+        return "users/login";
     }
 
     @PostMapping({"/", "/login"})
-    public String login(@Valid User user, BindingResult result) {
-        if (result.hasErrors()) {
-            return "redirect:/login";
-        }
+    public String login(@Valid User user) {
         User userExists = userService.findUserByPhoneNumber(user.getPhoneNumber());
         if (userExists != null) {
-            return "user/all";
+            return "users/all";
         }
-        return "user/login";
+        return "users/all";
     }
 
 
     @GetMapping("/registration")
     public String registration(Model model){
         model.addAttribute("user", new User());
-        return "user/form";
+        return "users/form";
+    }
+
+    @GetMapping("/admin/home")
+    public String panel(Model model){
+        return "admin/home";
     }
 
     @PostMapping("/registration")
@@ -53,11 +55,11 @@ public class LoginController {
 
         }
         if (bindingResult.hasErrors()) {
-            return "user/form";
+            return "users/form";
         } else {
             userService.saveUser(user);
         }
-        return "redirect:/user/login";
+        return "redirect:/users/login";
     }
 
   /*  @GetMapping("/admin/home")

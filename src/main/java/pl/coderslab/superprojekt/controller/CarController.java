@@ -38,13 +38,13 @@ public class CarController {
     @GetMapping("/add")
     public String addCar(Model model) {
         model.addAttribute("car", new Car());
-        return "car/form";
+        return "cars/form";
     }
 
     @PostMapping("/add")
     public String saveCar(@Valid Car car, BindingResult result) {
         if (result.hasErrors()) {
-            return "car/form";
+            return "cars/form";
         }
         carService.saveCar(car);
         return "redirect:/cars/all";
@@ -53,23 +53,23 @@ public class CarController {
     @RequestMapping("/all")
     public String getAll(Model model) {
         model.addAttribute("cars", carService.findAll());
-        return "car/all";
+        return "cars/all";
     }
 
     @GetMapping("/connect/{id}")
     public String addToCar(@PathVariable long id, Model model) {
         Car car = carService.findById(id);
         model.addAttribute("car", car);
-        return "car/connect";
+        return "cars/connect";
     }
 
     @PostMapping("/connect/{id}")
     public String addToCar(@Valid Car car, BindingResult result) {
         if (result.hasErrors()) {
-            return "car/connect";
+            return "cars/connect";
         }
         Car updatedCar = carService.findById(car.getId());
-        carService.addOwner(updatedCar,car.getOwner());
+        carService.addUser(updatedCar,car.getUser());
         carService.addCard(updatedCar,car.getFleetCard());
         carService.saveCar(updatedCar);
         return "redirect:/cars/all";

@@ -61,7 +61,7 @@ public class Car extends BaseEntity{
     private List<MonthUse> monthUses;
 
     @OneToOne
-    private User owner;
+    private User user;
 
     @OneToMany(mappedBy = "car")
     private List<FleetCard> fleetCard = new ArrayList<>();

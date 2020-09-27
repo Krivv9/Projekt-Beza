@@ -43,4 +43,7 @@ public class UserService {
     public List<User> findAll(){
         return userRepository.findAll();
     }
+
+    public void addCardById(Long id) {
+    }
 }

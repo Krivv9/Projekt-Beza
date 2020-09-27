@@ -34,7 +34,7 @@
     <c:forEach items="${cars}" var="car">
         <tr>
             <td>${car.id}</td>
-            <td>${car.owner.fullName}</td>
+            <td>${car.user.fullName}</td>
             <td>
             <c:forEach items="${car.fleetCard}" var="card">
                 ${card.cardNumber}
