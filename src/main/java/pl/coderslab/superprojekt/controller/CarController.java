@@ -13,28 +13,32 @@ import pl.coderslab.superprojekt.repository.CarRepository;
 import pl.coderslab.superprojekt.repository.FleetCardRepository;
 import pl.coderslab.superprojekt.repository.MonthUseRepository;
 import pl.coderslab.superprojekt.repository.UserRepository;
+import pl.coderslab.superprojekt.service.CarService;
+import pl.coderslab.superprojekt.service.FleetCardService;
+import pl.coderslab.superprojekt.service.MonthUseService;
+import pl.coderslab.superprojekt.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/car")
+@RequestMapping("/cars")
 public class CarController {
-    private final CarRepository carRepository;
-    private final MonthUseRepository monthUseRepository;
-    private final FleetCardRepository fleetCardRepository;
-    private final UserRepository userRepository;
+    private final CarService carService;
+    private final MonthUseService monthUseService;
+    private final FleetCardService fleetCardService;
+    private final UserService userService;
 
 
 
     @ModelAttribute("cards")
     public List<FleetCard> getAllFleetCards() {
-        return fleetCardRepository.findAll();
+        return fleetCardService.findAll();
     }
 
     @ModelAttribute("users")
-    public List<User> getAllUsers() { return userRepository.findAll(); }
+    public List<User> getAllUsers() { return userService.findAll(); }
 
     @GetMapping("/add")
     public String addCar(Model model) {
@@ -47,19 +51,19 @@ public class CarController {
         if (result.hasErrors()) {
             return "car/form";
         }
-        carRepository.save(car);
+        carService.saveCar(car);
         return "redirect:/car/all";
     }
 
     @RequestMapping("/all")
     public String getAll(Model model) {
-        model.addAttribute("cars", carRepository.findAll());
+        model.addAttribute("cars", carService.findAll());
         return "car/all";
     }
 
     @GetMapping("/connect/{id}")
     public String addToCar(@PathVariable long id, Model model) {
-        Car car = carRepository.findCarById(id);
+        Car car = carService.findById(id);
         model.addAttribute("car", car);
         return "car/connect";
     }
@@ -69,7 +73,10 @@ public class CarController {
         if (result.hasErrors()) {
             return "car/connect";
         }
-        carRepository.save(car);
+        Car updatedCar = carService.findById(car.getId());
+        carService.addOwner(updatedCar,car.getOwner());
+        carService.addCard(updatedCar,car.getFleetCard());
+        carService.saveCar(updatedCar);
         return "redirect:/car/all";
     }
 }

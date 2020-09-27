@@ -11,6 +11,7 @@ import pl.coderslab.superprojekt.model.User;
 import pl.coderslab.superprojekt.repository.CarRepository;
 import pl.coderslab.superprojekt.repository.FleetCardRepository;
 import pl.coderslab.superprojekt.repository.UserRepository;
+import pl.coderslab.superprojekt.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-    private final UserRepository userRepository;
+    private final UserService userService;
     private final CarRepository carRepository;
     private final FleetCardRepository fleetCardRepository;
 
@@ -44,13 +45,13 @@ public class UserController {
         if (result.hasErrors()) {
             return "user/form";
         }
-        userRepository.save(user);
+        userService.saveUser(user);
         return "redirect:/user/all";
     }
 
     @RequestMapping("/all")
     public String getAll(Model model) {
-        model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("users", userService.findAll());
         return "user/all";
     }
 }

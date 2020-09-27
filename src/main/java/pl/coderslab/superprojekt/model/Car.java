@@ -57,8 +57,8 @@ public class Car extends BaseEntity{
 
     private CarDetails carDetails;
 
-    @OneToOne
-    private MonthUse monthUse;
+    @OneToMany(mappedBy = "car")
+    private List<MonthUse> monthUses;
 
     @OneToOne
     private User owner;

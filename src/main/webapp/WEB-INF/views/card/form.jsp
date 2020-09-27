@@ -14,10 +14,10 @@
 <%--@elvariable id="card" type="pl.coderslab.superprojekt.model.FleetCard"--%>
 <form:form method="post" modelAttribute="card">
     <form:hidden path="id"/>
-    <%--Numer rejestracyjny auta, który chcesz przypisać do karty: <form:input path="car.carDetails.licensePlate"/><br>
+    Numer rejestracyjny auta, który chcesz przypisać do karty: <form:input path="car.carDetails.licensePlate"/><br>
     <form:errors path="car.carDetails.licensePlate" cssClass="error"/><br>
     Imię i nazwisko użytkownika karty/pojazdu: <form:input path="user.fullName"/><br>
-    <form:errors path="user.fullName" cssClass="error"/><br>--%>
+    <form:errors path="user.fullName" cssClass="error"/><br>
     Numer karty: <form:input path="cardNumber"/><br>
     <form:errors path="cardNumber" cssClass="error"/><br>
     Kod pin do karty: <form:input path="pinCard"/><br>

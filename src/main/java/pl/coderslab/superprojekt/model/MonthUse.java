@@ -22,7 +22,7 @@ public class MonthUse extends BaseEntity{
     private String amountOfFuelForPrivateUse;
     private String quantityOfDocuments;
 
-    @OneToOne
+    @ManyToOne
     private Car car;
 
     @OneToOne

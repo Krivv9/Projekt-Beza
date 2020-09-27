@@ -25,7 +25,7 @@ public class User extends BaseEntity {
     private String phoneNumber;
 
     @Column(name = "active")
-    private int active;
+    private Integer active;
 
     @Column(name = "password", nullable = false)
     private String password;

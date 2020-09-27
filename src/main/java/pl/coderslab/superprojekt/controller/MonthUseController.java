@@ -9,14 +9,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.superprojekt.model.MonthUse;
 import pl.coderslab.superprojekt.repository.MonthUseRepository;
+import pl.coderslab.superprojekt.service.MonthUseService;
 
 import javax.validation.Valid;
+import java.text.ParseException;
 
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/monthUse")
 public class MonthUseController {
-    private final MonthUseRepository monthUseRepository;
+    private final MonthUseService monthUseService;
 
     @GetMapping("/add")
     public String addMonthUse(Model model) {
@@ -33,13 +35,13 @@ public class MonthUseController {
         int end = Integer.parseInt(monthUse.getNumbersOfKilometersOnEndOfMonth());
 
         monthUse.setNumbersOfKilometersTraveledInThisMonth(end-start);
-        monthUseRepository.save(monthUse);
+        monthUseService.saveMonthUse(monthUse);
         return "redirect:/monthUse/all";
     }
 
     @RequestMapping("/all")
     public String getAll(Model model) {
-        model.addAttribute("monthUse", monthUseRepository.findAll());
+        model.addAttribute("monthUse", monthUseService.findAll());
         return "monthUse/all";
     }
 }
