@@ -18,7 +18,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     private final UserService userService;
     private final CarRepository carRepository;
@@ -46,7 +46,7 @@ public class UserController {
             return "user/form";
         }
         userService.saveUser(user);
-        return "redirect:/user/all";
+        return "redirect:/users/all";
     }
 
     @RequestMapping("/all")

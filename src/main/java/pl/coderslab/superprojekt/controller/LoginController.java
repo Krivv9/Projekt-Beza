@@ -27,7 +27,10 @@ public class LoginController {
     }
 
     @PostMapping({"/", "/login"})
-    public String login(@Valid User user) {
+    public String login(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "redirect:/login";
+        }
         User userExists = userService.findUserByPhoneNumber(user.getPhoneNumber());
         if (userExists != null) {
             return "user/all";
@@ -46,9 +49,8 @@ public class LoginController {
     public String createNewUser(@Valid User user, BindingResult bindingResult) {
         User userExists = userService.findUserByPhoneNumber(user.getPhoneNumber());
         if (userExists != null) {
-            bindingResult
-                    .rejectValue("phoneNumber", "error.user",
-                            "There is already a user registered with the phone number provided");
+            return "redirect:/home";
+
         }
         if (bindingResult.hasErrors()) {
             return "user/form";
@@ -58,7 +60,7 @@ public class LoginController {
         return "redirect:/user/login";
     }
 
-    @GetMapping("/admin/home")
+  /*  @GetMapping("/admin/home")
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -67,5 +69,5 @@ public class LoginController {
         modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
         modelAndView.setViewName("admin/home");
         return modelAndView;
-    }
+    }*/
 }

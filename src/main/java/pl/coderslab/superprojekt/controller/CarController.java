@@ -7,12 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.superprojekt.model.Car;
 import pl.coderslab.superprojekt.model.FleetCard;
-import pl.coderslab.superprojekt.model.MonthUse;
 import pl.coderslab.superprojekt.model.User;
-import pl.coderslab.superprojekt.repository.CarRepository;
-import pl.coderslab.superprojekt.repository.FleetCardRepository;
-import pl.coderslab.superprojekt.repository.MonthUseRepository;
-import pl.coderslab.superprojekt.repository.UserRepository;
 import pl.coderslab.superprojekt.service.CarService;
 import pl.coderslab.superprojekt.service.FleetCardService;
 import pl.coderslab.superprojekt.service.MonthUseService;
@@ -52,7 +47,7 @@ public class CarController {
             return "car/form";
         }
         carService.saveCar(car);
-        return "redirect:/car/all";
+        return "redirect:/cars/all";
     }
 
     @RequestMapping("/all")
@@ -77,6 +72,6 @@ public class CarController {
         carService.addOwner(updatedCar,car.getOwner());
         carService.addCard(updatedCar,car.getFleetCard());
         carService.saveCar(updatedCar);
-        return "redirect:/car/all";
+        return "redirect:/cars/all";
     }
 }

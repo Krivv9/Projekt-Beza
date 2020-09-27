@@ -14,7 +14,6 @@
     <form:options items="${users}" itemValue="id" itemLabel="fullName"/>
 </form:select><br>
     Karta paliwowa: <form:select path="fleetCard">
-    <form:option value="0" label="wybierz kartę"/>
     <form:options items="${cards}" itemValue="id" itemLabel="cardNumber"/>
 </form:select><br>
     <input type="submit" value="Wyślij">

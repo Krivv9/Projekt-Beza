@@ -10,6 +10,7 @@
     <tr>
         <td>Id</td>
         <td>Właściciel pojazdu</td>
+        <td>Karty paliwowe</td>
         <td>Marka</td>
         <td>Numer Vin</td>
         <td>Numer rejestracyjny</td>
@@ -34,6 +35,11 @@
         <tr>
             <td>${car.id}</td>
             <td>${car.owner.fullName}</td>
+            <td>
+            <c:forEach items="${car.fleetCard}" var="card">
+                ${card.cardNumber}
+            </c:forEach>
+            </td>
             <td>${car.carDetails.modelCar}</td>
             <td>${car.carDetails.vinNumber}</td>
             <td>${car.carDetails.licensePlate}</td>
