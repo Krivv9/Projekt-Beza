@@ -49,7 +49,6 @@ public class FleetCardController {
         User cardUser = fleetCard.getUser();
         cardUser.setCar(fleetCard.getCar());
         cardUser.setFleetCard(fleetCard);
-        userService.saveUser(cardUser);
         List<FleetCard> cards = new ArrayList<>();
         cards.add(fleetCard);
         carService.addCard(fleetCard.getCar(),cards);

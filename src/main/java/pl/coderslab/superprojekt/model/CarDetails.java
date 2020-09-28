@@ -16,11 +16,9 @@ public class CarDetails {
     @Column(name = "type",nullable = false)
     private String typeOfCar;
 
-    @Size(min = 2,max = 9)
     @Column(name = "license_plate",nullable = false)
     private String licensePlate;
 
-    @Size(min = 17, max = 17)
     @Column(name = "vin_number",nullable = false)
     private String vinNumber;
 
@@ -31,13 +29,13 @@ public class CarDetails {
     private String engineNumber;
 
     @Column(name = "year_of_production",nullable = false)
-    private String yearOfProduction;
+    private Integer yearOfProduction;
 
     @Column(name = "engine_capacity",nullable = false)
-    private String engineCapacity;
+    private Double engineCapacity;
 
     @Column(name = "number_of_seats",nullable = false)
-    private String numberOfSeats;
+    private Integer numberOfSeats;
 
     @Column(name = "fuel_type",nullable = false)
     private String fuelType;
@@ -49,7 +47,7 @@ public class CarDetails {
     private String carSecurity;
 
     @Column(name = "year_first_reg",nullable = false)
-    private String yearOfFirstRegistration;
+    private Integer yearOfFirstRegistration;
 
     @Column(name = "insurance_company",nullable = false)
     private String insuranceCompany;

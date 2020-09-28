@@ -59,8 +59,8 @@
             <td>${car.nextTechnicalInspectionDate}</td>
             <td>${car.comments}</td>
             <td>
-                <a href="/car/connect/${car.id}">dodaj użytkownika i/lub kartę</a>
-                <a href="/car/connect/${car.id}">edytuj użytkownika i/lub kartę</a>
+                <a href="/cars/connect/${car.id}">dodaj użytkownika i/lub kartę</a>
+                <a href="/cars/connect/${car.id}">edytuj użytkownika i/lub kartę</a>
             </td>
         </tr>
     </c:forEach>

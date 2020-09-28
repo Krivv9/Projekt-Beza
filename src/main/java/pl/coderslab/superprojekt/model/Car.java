@@ -1,5 +1,6 @@
 package pl.coderslab.superprojekt.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +22,9 @@ public class Car extends BaseEntity{
     @Column(name = "expire_date_oc", nullable = false)
     private Date ocPolicyExpireDate;
 
+    public void setOcPolicyExpireDate(Date ocPolicyExpireDate) {
+        this.ocPolicyExpireDate = ocPolicyExpireDate;
+    }
     public void setOcPolicyExpireDate(String ocPolicyExpireDate) {
         try {
             this.ocPolicyExpireDate = new SimpleDateFormat("yyyy-MM-dd").parse(ocPolicyExpireDate);
@@ -32,17 +36,23 @@ public class Car extends BaseEntity{
     @Column(name = "expire_date_ac", nullable = false)
     private Date acPolicyExpireDate;
 
+
+    public void setAcPolicyExpireDate(Date acPolicyExpireDate) {
+        this.acPolicyExpireDate = acPolicyExpireDate;
+    }
     public void setAcPolicyExpireDate(String acPolicyExpireDate) {
         try {
             this.acPolicyExpireDate = new SimpleDateFormat("yyyy-MM-dd").parse(acPolicyExpireDate);
         } catch (ParseException e) {
             e.printStackTrace();
-        }
-    }
+        }    }
 
-    @Column(name = "next_tech_insp_date", nullable = false)
+    @Column(name = "next_tech_insp_date")
     private Date nextTechnicalInspectionDate;
 
+    public void setNextTechnicalInspectionDate(Date nextTechnicalInspectionDate) {
+        this.nextTechnicalInspectionDate = nextTechnicalInspectionDate;
+    }
     public void setNextTechnicalInspectionDate(String nextTechnicalInspectionDate) {
         try {
             this.nextTechnicalInspectionDate = new SimpleDateFormat("yyyy-MM-dd").parse(nextTechnicalInspectionDate);
