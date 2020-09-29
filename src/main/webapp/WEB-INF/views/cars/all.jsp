@@ -29,6 +29,7 @@
         <td>Rok pierwszej rejestracji</td>
         <td>Data następnego przeglądu</td>
         <td>Uwagi</td>
+        <td>Akcję, Linki</td>
 
     </tr>
     <c:forEach items="${cars}" var="car">
@@ -59,8 +60,9 @@
             <td>${car.nextTechnicalInspectionDate}</td>
             <td>${car.comments}</td>
             <td>
-                <a href="/cars/connect/${car.id}">dodaj użytkownika i/lub kartę</a>
-                <a href="/cars/connect/${car.id}">edytuj użytkownika i/lub kartę</a>
+                <a href="/cars/connect/${car.id}">Dodaj/zmień użytkownika</a>
+                <a href="/monthUses/add/${car.id}">Miesięczne zużycie paliwa auta</a>
+                <a href="/monthUses/add/${car.id}">Dodaj zmień kartę paliwową</a>
             </td>
         </tr>
     </c:forEach>

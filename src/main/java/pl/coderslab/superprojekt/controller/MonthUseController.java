@@ -4,25 +4,35 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import pl.coderslab.superprojekt.model.Car;
 import pl.coderslab.superprojekt.model.MonthUse;
+import pl.coderslab.superprojekt.repository.CarRepository;
 import pl.coderslab.superprojekt.repository.MonthUseRepository;
+import pl.coderslab.superprojekt.service.CarService;
 import pl.coderslab.superprojekt.service.MonthUseService;
 
 import javax.validation.Valid;
 import java.text.ParseException;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/monthUses")
 public class MonthUseController {
     private final MonthUseService monthUseService;
+    private final CarService carService;
 
-    @GetMapping("/add")
-    public String addMonthUse(Model model) {
+    @ModelAttribute("cars")
+    public List<Car> getAllUsers() {
+        return carService.findAll();
+    }
+
+    @GetMapping("/add/{id}")
+    public String addMonthUse(@PathVariable("id") Long id, Model model) {
+        Car car = carService.findById(id);
         model.addAttribute("monthUse", new MonthUse());
+        model.addAttribute("car", car);
         return "monthUses/form";
     }
 

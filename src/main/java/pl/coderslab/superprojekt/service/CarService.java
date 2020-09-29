@@ -46,7 +46,6 @@ public class CarService {
 
     public void addCard(Car car, List<FleetCard> cards) {
         car.setFleetCard(cards);
-        carRepository.save(car);
     }
 
     public List<Car> getAllWithOwners() {

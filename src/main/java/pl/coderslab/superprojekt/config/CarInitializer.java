@@ -14,7 +14,12 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Component
 public class CarInitializer implements CommandLineRunner {
-    @Autowired
+    @Override
+    public void run(String... args) throws Exception {
+
+    }
+   /* Dane do wypełnienia tabeli z autami
+   @Autowired
     private CarService carService;
 
     @Override
@@ -52,5 +57,5 @@ public class CarInitializer implements CommandLineRunner {
 
         log.info("... finished car initialization");
     }
-
+*/
 }

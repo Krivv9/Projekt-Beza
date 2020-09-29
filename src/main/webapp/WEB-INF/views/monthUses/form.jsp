@@ -9,6 +9,10 @@
 <%--@elvariable id="monthUse" type="pl.coderslab.superprojekt.model.MonthUse"--%>
 <form:form method="post" modelAttribute="monthUse">
     <form:hidden path="id"/>
+    Numer rejestracyjny auta: <form:select path="car.carDetails.licensePlate"><br>
+        <form:option value="0" label="wybierz auto po numerze rejestracyjnym"/>
+        <form:options items="${car}" itemValue="id" itemLabel="carDetails.licensePlate"/>
+    </form:select><br>
     Miesiąc: <form:input path="month"/><br>
     <form:errors path="month" cssClass="error"/><br>
     Stan licznika na początku miesiąca: <form:input path="numbersOfKilometersOnStartOfMonth"/><br>

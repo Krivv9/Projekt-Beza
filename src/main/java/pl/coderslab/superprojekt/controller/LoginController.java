@@ -22,7 +22,7 @@ public class LoginController {
     private UserService userService;
 
     @GetMapping("/login")
-    public String login(Model model){
+    public String login(Model model) {
         model.addAttribute("user", new User());
         return "users/login";
     }
@@ -34,12 +34,14 @@ public class LoginController {
             return "users/notLogged";
         }
         Set<Role> roles = user.getRoles();
-        for (Role role: roles
-             ) { if ("ROLE_ADMIN".equals(role.getRole())) {
-                 return  "admin/home";
+        for (Role role : roles) {
+            if ("ROLE_ADMIN".equals(role.getRole())) {
+                return "admin/home";
+            } else if ("ROLE_USER".equals(role.getRole())) {
+                return "cars/all";
+            }
         }
-        }
-        return "users/all";
+        return "users/login";
     }
 
     private boolean wrongPassword(User userExists, User user) {
@@ -48,15 +50,20 @@ public class LoginController {
 
 
     @GetMapping("/registration")
-    public String registration(Model model){
+    public String registration(Model model) {
         model.addAttribute("user", new User());
         return "users/form";
     }
 
-    /*@GetMapping("/admin/home")
-    public String panel(Model model){
+    @GetMapping("/admin/home")
+    public String panel() {
         return "admin/home";
-    }*/
+    }
+
+    @GetMapping("/access-denied")
+    public String accessDenied() {
+        return "access/denied";
+    }
 
     @PostMapping("/registration")
     public String createNewUser(@Valid User user, BindingResult bindingResult) {
@@ -73,14 +80,14 @@ public class LoginController {
         return "redirect:/users/login";
     }
 
-    @GetMapping("/admin/home")
-    public ModelAndView home(){
+    /*@GetMapping("/admin/home")
+    public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByPhoneNumber(auth.getName());
         modelAndView.addObject("userName", "Welcome " + user.getFirstName() + " " + user.getLastName() + " (" + user.getPhoneNumber() + ")");
-        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
+        modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
         modelAndView.setViewName("admin/home");
         return modelAndView;
-    }
+    }*/
 }
