@@ -18,8 +18,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-import pl.coderslab.superprojekt.converter.CarConverter;
-import pl.coderslab.superprojekt.converter.UserConverter;
+import pl.coderslab.superprojekt.converters.CarConverter;
+import pl.coderslab.superprojekt.converters.UserConverter;
 
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;

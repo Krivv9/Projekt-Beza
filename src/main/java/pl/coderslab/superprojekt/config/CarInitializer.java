@@ -4,11 +4,20 @@ import com.github.javafaker.Faker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-import pl.coderslab.superprojekt.model.Car;
-import pl.coderslab.superprojekt.model.CarDetails;
-import pl.coderslab.superprojekt.service.CarService;
+import pl.coderslab.superprojekt.models.Car;
+import pl.coderslab.superprojekt.models.CarDetails;
+import pl.coderslab.superprojekt.models.Role;
+import pl.coderslab.superprojekt.models.User;
+import pl.coderslab.superprojekt.repositories.RoleRepository;
+import pl.coderslab.superprojekt.repositories.UserRepository;
+import pl.coderslab.superprojekt.services.CarService;
+import pl.coderslab.superprojekt.services.RoleService;
+import pl.coderslab.superprojekt.services.UserService;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -18,8 +27,8 @@ public class CarInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
     }
-   /* Dane do wypełnienia tabeli z autami
-   @Autowired
+   // Dane do wypełnienia tabeli z autami
+   /*@Autowired
     private CarService carService;
 
     @Override
@@ -56,6 +65,5 @@ public class CarInitializer implements CommandLineRunner {
         }
 
         log.info("... finished car initialization");
-    }
-*/
+    }*/
 }

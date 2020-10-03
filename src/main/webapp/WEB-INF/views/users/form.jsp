@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Formularz dodawania nowego auta do floty<br></h1><br>
-<%--@elvariable id="user" type="pl.coderslab.superprojekt.model.User"--%>
+<%--@elvariable id="user" type="pl.coderslab.superprojekt.models.User"--%>
 <form:form method="post" modelAttribute="user">
     <form:hidden path="id"/>
     Imię: <form:input path="firstName"/><br>
@@ -20,7 +20,7 @@
     <form:errors path="lastName" cssClass="error"/><br>
     Numer telefonu: <form:input path="phoneNumber"/><br>
     <form:errors path="phoneNumber" cssClass="error"/><br>
-    Hasło: <form:input path="password"/><br>
+    Hasło: <form:input path="password" type="password"/><br>
     <form:errors path="password" cssClass="error"/><br>
     <input type="submit" value="Wyślij">
 </form:form>

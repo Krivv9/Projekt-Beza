@@ -11,6 +11,7 @@
     <tr>
         <td>Id</td>
         <td>Numer rejestracyjny pojazdu</td>
+        <td>Użytkownik</td>
         <td>Miesiąc</td>
         <td>Stan licznika (początek miesiąca)</td>
         <td>Stan licznika (koniec miesiąca)</td>
@@ -25,7 +26,8 @@
     <c:forEach items="${monthUse}" var="carDetails">
         <tr>
             <td>${carDetails.id}</td>
-            <td>${carDetails.car.carDetails.licensePlate}</td>
+            <td>${plateLicense}</td>
+            <td>${userName}</td>
             <td>${carDetails.month}</td>
             <td>${carDetails.numbersOfKilometersOnStartOfMonth}</td>
             <td>${carDetails.numbersOfKilometersOnEndOfMonth}</td>

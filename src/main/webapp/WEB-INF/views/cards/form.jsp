@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Formularz dodawania karty paliwowej<br></h1><br>
-<%--@elvariable id="card" type="pl.coderslab.superprojekt.model.FleetCard"--%>
+<%--@elvariable id="card" type="pl.coderslab.superprojekt.models.FleetCard"--%>
 <form:form method="post" modelAttribute="card">
     <form:hidden path="id"/>
     Numer rejestracyjny auta, który chcesz przypisać do karty: <form:select path="car">

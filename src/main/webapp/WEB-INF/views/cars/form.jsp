@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Formularz dodawania nowego auta do floty<br></h1><br>
-<%--@elvariable id="car" type="pl.coderslab.superprojekt.model.Car"--%>
+<%--@elvariable id="car" type="pl.coderslab.superprojekt.models.Car"--%>
 <form:form method="post" modelAttribute="car">
     <form:hidden path="id"/>
     <h2>Dane z dowodu rejestracyjnego:</h2>
@@ -57,7 +57,7 @@
     <form:errors path="carDetails.carSecurity" cssClass="error"/><br>
     Rok produkcji: <form:input path="carDetails.yearOfProduction"/><br>
     <form:errors path="carDetails.yearOfProduction" cssClass="error"/><br>
-    Rok pierwszej rejestracji: <form:input path="carDetails.yearOfFirstRegistration"/><br>
+    Rok pierwszej rejestracji: <form:input path="carDetails.yearOfFirstRegistration" type="number"/><br>
     <form:errors path="carDetails.yearOfFirstRegistration" cssClass="error"/><br>
     Uwagi: <form:textarea cols="15" rows="3" path="comments"/><br>
     <form:errors path="comments" cssClass="error"/><br>

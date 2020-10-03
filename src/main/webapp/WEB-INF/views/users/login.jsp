@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Logowanie Użytkownika<br></h1><br>
-<%--@elvariable id="user" type="pl.coderslab.superprojekt.model.User"--%>
+<%--@elvariable id="user" type="pl.coderslab.superprojekt.models.User"--%>
 <form:form method="post" modelAttribute="user">
     <form:hidden path="id"/>
     <%--Imię: <form:input path="firstName"/><br>

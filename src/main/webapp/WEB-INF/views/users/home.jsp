@@ -2,13 +2,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Panel Administratora</title>
+    <title>Panel Użytkownika</title>
 </head>
 <body>
-<br><h1>Panel Administratora</h1><br>
+Cześć ${user.fullName}. Wybierz co chcesz zrobić <br><br>
 <a href="<c:url value="/cars/all"/>">Auta</a><br>
-<a href="<c:url value="/users/all"/>">Użytkownicy</a><br>
 <a href="<c:url value="/monthUses/all"/>">Zużycie miesięczne</a><br>
-<a href="<c:url value="/cards/all"/>">Karty flotowe</a><br>
+<a href="<c:url value="/admin/home"/>">Panel admina</a><br>
+</body>
+</html>
+
 </body>
 </html>

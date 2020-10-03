@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Formularz przypisania karty do użytkownika<br></h1><br>
-<%--@elvariable id="user" type="pl.coderslab.superprojekt.model.User"--%>
+<%--@elvariable id="user" type="pl.coderslab.superprojekt.models.User"--%>
 <form:form method="post" modelAttribute="user">
     <form:hidden path="id"/>
     <h3>Numer karty flotowej do przypisania ${user.fleetCard.cardNumber}<br></h3><br><br>

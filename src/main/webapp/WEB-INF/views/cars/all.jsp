@@ -62,7 +62,7 @@
             <td>
                 <a href="/cars/connect/${car.id}">Dodaj/zmień użytkownika</a>
                 <a href="/monthUses/add/${car.id}">Miesięczne zużycie paliwa auta</a>
-                <a href="/monthUses/add/${car.id}">Dodaj zmień kartę paliwową</a>
+                <a href="/cards/add/${car.id}">Dodaj zmień kartę paliwową</a>
             </td>
         </tr>
     </c:forEach>
