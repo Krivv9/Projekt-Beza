@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Miesięczna karta kontroli zużycia paliwa</h1><br>
-<%--@elvariable id="monthUse" type="pl.coderslab.superprojekt.models.MonthUse"--%>
+<%--@elvariable id="monthUse" type="pl.kamilracki.flota.models.MonthUse"--%>
 <form:form method="post" modelAttribute="monthUse">
     Numer rejestracyjny auta: "${car.carDetails.licensePlate}"<br>
     Miesiąc: <form:select path="month"><br>

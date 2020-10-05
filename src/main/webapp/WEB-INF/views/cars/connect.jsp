@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Formularz dodawania nowego auta do floty<br></h1><br>
-<%--@elvariable id="car" type="pl.coderslab.superprojekt.models.Car"--%>
+<%--@elvariable id="car" type="pl.kamilracki.flota.models.Car"--%>
 <form:form method="post" modelAttribute="car">
     Użytkownik: <form:select path="user">
     <form:option value="0" label="wybierz właściciela"/>

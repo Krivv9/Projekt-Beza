@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>Formularz przypisania auta do użytkownika<br></h1><br>
-<%--@elvariable id="user" type="pl.coderslab.superprojekt.models.User"--%>
+<%--@elvariable id="user" type="pl.kamilracki.flota.models.User"--%>
 <form:form method="post" modelAttribute="user">
     <form:hidden path="id"/>
     <h3>Numer rejestracyjny auta do przypisania ${user.car.carDetails.licensePlate}</h3><br>

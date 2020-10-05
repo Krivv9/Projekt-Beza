@@ -5,9 +5,8 @@
     <title>Panel Użytkownika</title>
 </head>
 <body>
-Cześć ${user.fullName}. Wybierz co chcesz zrobić <br><br>
+Cześć ${name}. Wybierz co chcesz zrobić <br><br>
 <a href="<c:url value="/cars/all"/>">Auta</a><br>
-<a href="<c:url value="/monthUses/all"/>">Zużycie miesięczne</a><br>
 <a href="<c:url value="/admin/home"/>">Panel admina</a><br>
 </body>
 </html>

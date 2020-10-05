@@ -5,7 +5,8 @@
     <title>Wszystkie auta</title>
 </head>
 <body>
-<h1>Lista aut</h1>
+<h1>Lista aut</h1><br>
+<a href="/cars/add">Dodaj auto</a>
 <table border="1">
     <tr>
         <td>Id</td>
