@@ -1,42 +1,47 @@
 package pl.kamilracki.flota.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.kamilracki.flota.models.Role;
-import pl.kamilracki.flota.models.User;
-import pl.kamilracki.flota.repositories.RoleRepository;
+import pl.kamilracki.flota.models.entities.User;
 import pl.kamilracki.flota.repositories.UserRepository;
 
+import javax.security.auth.message.AuthException;
 import javax.transaction.Transactional;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 
 @Service
 @Transactional
 public class UserService {
-    @Autowired
+
     private UserRepository userRepository;
-
-    @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
 
     public User findUserByPhoneNumber(String phoneNumber) {
         return userRepository.findUserByPhoneNumber(phoneNumber);
     }
-
-    public void saveUser(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(1);
-        Role userRole = roleRepository.findByRole("ROLE_USER");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-        userRepository.save(user);
+    public User findUserByLogin(String login) {
+        return userRepository.findUserByLogin(login);
     }
+    public User getCurrentUser() {
+        String login;
+        User user = new User();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.isAuthenticated()) {
+            login = auth.getName();
+            user = userRepository.findUserByLogin(login);
+        }
+        return user;
+    };
 
     public List<User> findAll(){
         return userRepository.findAll();
@@ -45,11 +50,8 @@ public class UserService {
     public User findUserById(Long id) { return userRepository.findUserById(id);
     }
 
-    public void saveAdmin(User admin) {
-        admin.setPassword(bCryptPasswordEncoder.encode(admin.getPassword()));
-        admin.setActive(1);
-        Role userRole = roleRepository.findByRole("ROLE_ADMIN");
-        admin.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-        userRepository.save(admin);
+
+    public User save(User user) {
+        return userRepository.save(user);
     }
 }

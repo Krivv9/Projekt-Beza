@@ -1,4 +1,4 @@
-package pl.kamilracki.flota.models;
+package pl.kamilracki.flota.models.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Table(name = FleetCard.TABLE)
-public class FleetCard extends BaseEntity{
+public class FleetCard extends BaseEntity {
     public final static String TABLE = "fleet_cards";
 
     @Column(name = "card_number", nullable = false)

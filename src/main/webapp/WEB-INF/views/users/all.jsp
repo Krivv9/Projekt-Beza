@@ -3,8 +3,15 @@
 <html>
 <head>
     <title>Wszyscy użytkownicy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
 </head>
 <body>
+<section>
+    <section class="navbar">
+        <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
+    </section>
+</section>
 <h1>Lista użytkowników</h1>
 <table border="2">
     <tr>
@@ -26,5 +33,9 @@
         </tr>
     </c:forEach>
 </table>
+
+<footer class="footer">
+    <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
+</footer>
 </body>
 </html>

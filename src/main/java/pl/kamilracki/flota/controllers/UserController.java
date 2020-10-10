@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.kamilracki.flota.models.Car;
-import pl.kamilracki.flota.models.FleetCard;
-import pl.kamilracki.flota.models.User;
+import pl.kamilracki.flota.models.entities.Car;
+import pl.kamilracki.flota.models.entities.FleetCard;
+import pl.kamilracki.flota.models.entities.User;
 import pl.kamilracki.flota.repositories.CarRepository;
 import pl.kamilracki.flota.repositories.FleetCardRepository;
 import pl.kamilracki.flota.services.UserService;
@@ -48,7 +48,7 @@ public class UserController {
         if (result.hasErrors()) {
             return "users/form";
         }
-        userService.saveUser(user);
+        userService.save(user);
         return "redirect:/users/all";
     }
 

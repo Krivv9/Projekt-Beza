@@ -30,8 +30,8 @@ import java.util.Locale;
 
 @Configuration
 @EnableWebMvc
-@EnableJpaRepositories(basePackages = "pl.coderslab")
-@ComponentScan(basePackages = "pl.coderslab")
+@EnableJpaRepositories(basePackages = "pl.kamilracki")
+@ComponentScan(basePackages = "pl.kamilracki")
 @EnableTransactionManagement
 public class AppConfig implements WebMvcConfigurer {
     @Override
@@ -50,7 +50,6 @@ public class AppConfig implements WebMvcConfigurer {
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-
         configurer.enable();
     }
 

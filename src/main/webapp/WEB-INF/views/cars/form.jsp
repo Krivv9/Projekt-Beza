@@ -9,10 +9,17 @@
         color: red;
     }
 </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
 </head>
 <body>
+<section>
+    <section class="navbar">
+        <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
+    </section>
+</section>
 <h1>Formularz dodawania nowego auta do floty<br></h1><br>
-<%--@elvariable id="car" type="pl.kamilracki.flota.models.Car"--%>
+<%--@elvariable id="car" type="pl.kamilracki.flota.models.entities.Car"--%>
 <form:form method="post" modelAttribute="car">
     <form:hidden path="id"/>
     <h2>Dane z dowodu rejestracyjnego:</h2>
@@ -63,5 +70,9 @@
     <form:errors path="comments" cssClass="error"/><br>
     <input type="submit" value="Wyślij">
 </form:form>
+
+<footer class="footer">
+    <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
+</footer>
 </body>
 </html>

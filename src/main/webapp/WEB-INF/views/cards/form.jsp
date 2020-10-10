@@ -8,10 +8,17 @@
             color: red;
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
 </head>
 <body>
+<section>
+    <section class="navbar">
+        <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
+    </section>
+</section>
 <h1>Formularz dodawania karty paliwowej<br></h1><br>
-<%--@elvariable id="card" type="pl.kamilracki.flota.models.FleetCard"--%>
+<%--@elvariable id="card" type="pl.kamilracki.flota.models.entities.FleetCard"--%>
 <form:form method="post" modelAttribute="card">
     <form:hidden path="id"/>
     Numer rejestracyjny auta, który chcesz przypisać do karty:
@@ -34,5 +41,9 @@
     <form:errors path="pinCard" cssClass="error"/><br>
     <input type="submit" value="Wyślij">
 </form:form>
+
+<footer class="footer">
+    <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
+</footer>
 </body>
 </html>

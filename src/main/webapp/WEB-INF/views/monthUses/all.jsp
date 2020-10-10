@@ -3,8 +3,15 @@
 <html>
 <head>
     <title>Rozliczenie paliwa</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
 </head>
 <body>
+<section>
+    <section class="navbar">
+        <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
+    </section>
+</section>
 <div>
     <h1>Rozliczenie paliwa</h1><br><br>
 <table border="1">
@@ -42,5 +49,9 @@
     </c:forEach>
 </table>
 </div>
+
+<footer class="footer">
+    <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
+</footer>
 </body>
 </html>

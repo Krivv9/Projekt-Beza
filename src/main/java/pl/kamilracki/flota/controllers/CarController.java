@@ -6,10 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.kamilracki.flota.models.Car;
-import pl.kamilracki.flota.models.FleetCard;
-import pl.kamilracki.flota.models.MonthUse;
-import pl.kamilracki.flota.models.User;
+import pl.kamilracki.flota.models.entities.Car;
+import pl.kamilracki.flota.models.entities.FleetCard;
+import pl.kamilracki.flota.models.entities.MonthUse;
+import pl.kamilracki.flota.models.entities.User;
 import pl.kamilracki.flota.services.CarService;
 import pl.kamilracki.flota.services.FleetCardService;
 import pl.kamilracki.flota.services.MonthUseService;
@@ -19,7 +19,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
-@RequiredArgsConstructor
 @Controller
 @RequestMapping("/cars")
 public class CarController {
@@ -27,6 +26,13 @@ public class CarController {
     private final MonthUseService monthUseService;
     private final FleetCardService fleetCardService;
     private final UserService userService;
+
+    public CarController(CarService carService, MonthUseService monthUseService, FleetCardService fleetCardService, UserService userService) {
+        this.carService = carService;
+        this.monthUseService = monthUseService;
+        this.fleetCardService = fleetCardService;
+        this.userService = userService;
+    }
 
     @ModelAttribute("monthUses")
     public List<MonthUse> getAllUses() { return  monthUseService.findAll(); }
@@ -56,7 +62,8 @@ public class CarController {
 
     @RequestMapping("/all")
     public String getAll(Model model) {
-        model.addAttribute("cars", carService.findAll());
+        List<Car> cars = carService.findAll();
+        model.addAttribute("cars", cars);
         return "cars/all";
     }
 
@@ -78,4 +85,24 @@ public class CarController {
         carService.saveCar(updatedCar);
         return "redirect:/cars/all";
     }
+
+    /*private CarShowDTO convertToDto(Post post) {
+        PostDto postDto = modelMapper.map(post, PostDto.class);
+        postDto.setSubmissionDate(post.getSubmissionDate(),
+                userService.getCurrentUser().getPreference().getTimezone());
+        return postDto;
+    }
+
+    private Post convertToEntity(PostDto postDto) throws ParseException {
+        Post post = modelMapper.map(postDto, Post.class);
+        post.setSubmissionDate(postDto.getSubmissionDateConverted(
+                userService.getCurrentUser().getPreference().getTimezone()));
+
+        if (postDto.getId() != null) {
+            Post oldPost = postService.getPostById(postDto.getId());
+            post.setRedditID(oldPost.getRedditID());
+            post.setSent(oldPost.isSent());
+        }
+        return post;
+    }*/
 }

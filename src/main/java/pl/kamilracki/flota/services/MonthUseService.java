@@ -1,7 +1,7 @@
 package pl.kamilracki.flota.services;
 
 import org.springframework.stereotype.Service;
-import pl.kamilracki.flota.models.MonthUse;
+import pl.kamilracki.flota.models.entities.MonthUse;
 import pl.kamilracki.flota.repositories.MonthUseRepository;
 
 import javax.transaction.Transactional;

@@ -6,9 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.kamilracki.flota.enums.MONTH;
-import pl.kamilracki.flota.models.Car;
-import pl.kamilracki.flota.models.MonthUse;
+import pl.kamilracki.flota.enums.Month;
+import pl.kamilracki.flota.models.entities.Car;
+import pl.kamilracki.flota.models.entities.MonthUse;
 import pl.kamilracki.flota.services.CarService;
 import pl.kamilracki.flota.services.MonthUseService;
 
@@ -23,7 +23,7 @@ public class MonthUseController {
     private final CarService carService;
 
     @ModelAttribute("months")
-    public List<String> getAllMonths(){return MONTH.valueOf();}
+    public List<String> getAllMonths(){return Month.valueOf();}
 
 
     @ModelAttribute("cars")

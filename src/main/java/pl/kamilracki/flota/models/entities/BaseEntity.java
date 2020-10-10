@@ -1,4 +1,4 @@
-package pl.kamilracki.flota.models;
+package pl.kamilracki.flota.models.entities;
 
 import lombok.Getter;
 import lombok.Setter;

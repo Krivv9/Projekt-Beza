@@ -3,10 +3,17 @@
 <html>
 <head>
     <title>Karta misięczna</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
 </head>
 <body>
+<section>
+    <section class="navbar">
+        <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
+    </section>
+</section>
 <h1>Miesięczna karta kontroli zużycia paliwa</h1><br>
-<%--@elvariable id="monthUse" type="pl.kamilracki.flota.models.MonthUse"--%>
+<%--@elvariable id="monthUse" type="pl.kamilracki.flota.models.entities.MonthUse"--%>
 <form:form method="post" modelAttribute="monthUse">
     Numer rejestracyjny auta: "${car.carDetails.licensePlate}"<br>
     Miesiąc: <form:select path="month"><br>
@@ -29,5 +36,9 @@
     <form:errors path="comments" cssClass="error"/><br>
     <input type="submit" value="Wyślij">
 </form:form>
+
+<footer class="footer">
+    <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
+</footer>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package pl.kamilracki.flota.models;
+package pl.kamilracki.flota.models.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name = Car.TABLE)
-public class Car extends BaseEntity{
+public class Car extends BaseEntity {
     public final static String TABLE = "cars";
 
     @Column(name = "expire_date_oc", nullable = false)
