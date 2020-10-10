@@ -17,24 +17,57 @@
         <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
     </section>
 </section>
+<section class="section">
+    <div class="container has-text-centered">
 <h1>Formularz dodawania nowego użytkownika<br></h1><br>
 <%--@elvariable id="user" type="pl.kamilracki.flota.models.entities.User"--%>
-<form:form method="post" modelAttribute="userToAdd" action="/registration">
-    Imię: <form:input path="firstName"/><br>
-    <form:errors path="firstName" cssClass="error"/><br>
-    Nazwisko: <form:input path="lastName"/><br>
-    <form:errors path="lastName" cssClass="error"/><br>
-    Login: <form:input path="login"/><br>
-    <form:errors path="login" cssClass="error"/><br>
-    Numer telefonu: <form:input path="phoneNumber"/><br>
-    <form:errors path="phoneNumber" cssClass="error"/><br>
-    Hasło: <form:input path="password" type="password"/><br>
-    <form:errors path="password" cssClass="error"/><br>
-    Powtórz hasło: <form:input path="doublePassword" type="password"/><br>
-    <form:errors path="doublePassword" cssClass="has-text-danger"/><br>
-    <input type="submit" value="Wyślij">
-</form:form>
 
+        <div class="columns is-centered">
+            <div class="column is-5 is-4-desktop">
+        <form:form method="post" modelAttribute="userToAdd" action="/registration">
+            <div class="container">
+                <div class="control">
+    Imię: <form:input path="firstName"/><br>
+                </div>
+            </div>
+    <form:errors path="firstName" cssClass="error"/><br>
+            <div class="container">
+                <div class="control">
+    Nazwisko: <form:input path="lastName"/><br>
+            </div>
+        </div>
+    <form:errors path="lastName" cssClass="error"/><br>
+            <div class="container">
+                <div class="control">
+    Login: <form:input path="login"/><br>
+    </div>
+    </div>
+    <form:errors path="login" cssClass="error"/><br>
+            <div class="container">
+                <div class="control">
+    Numer telefonu: <form:input path="phoneNumber"/><br>
+
+    <form:errors path="phoneNumber" cssClass="error"/><br>
+                    <div class="container">
+                        <div class="control">
+    Hasło: <form:input path="password" type="password"/><br>
+    </div>
+    </div>
+    <form:errors path="password" cssClass="error"/><br>
+                    <div class="container">
+                        <div class="control">
+    Powtórz hasło: <form:input path="doublePassword" type="password"/><br>
+    </div>
+    </div>
+                    <div class="control">
+        <form:errors path="doublePassword" cssClass="has-text-danger"/><br>
+    <input type="submit" class="button is-link is-primary is-fullwidth" value="Wyślij">
+                    </div>
+            </form:form>
+                </div>
+            </div>
+            </div>
+</section>
 <footer class="footer">
     <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
 </footer>

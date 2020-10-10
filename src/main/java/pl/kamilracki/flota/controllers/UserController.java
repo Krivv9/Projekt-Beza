@@ -55,7 +55,7 @@ public class UserController {
     @RequestMapping("/home")
     public String userPan(Principal principal, Model model) {
         if (principal != null) {
-            String name = userService.findUserByPhoneNumber(principal.getName()).getFullName();
+            String name = principal.getName();
             model.addAttribute("name", name);
         }
         return "users/home";

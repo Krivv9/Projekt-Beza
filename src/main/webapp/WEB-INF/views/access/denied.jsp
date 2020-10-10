@@ -12,9 +12,13 @@
         <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
     </section>
 </section>
+<div class="columns is-centered">
+    <div class="column is-5 is-4-desktop">
 <h1>Niestety masz za małe uprawnienia, żeby wejść na daną stronę</h1><br><br>
 
 <h1><a href="<c:url value="/"/>"> Spróbuj tu</a></h1>
+    </div>
+</div>
 
 <footer class="footer">
     <jsp:include page="/WEB-INF/views/page/footer.jsp"/>

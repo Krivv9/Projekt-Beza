@@ -6,9 +6,8 @@ import org.springframework.core.convert.converter.Converter;
 import pl.kamilracki.flota.models.entities.User;
 import pl.kamilracki.flota.repositories.UserRepository;
 
-@RequiredArgsConstructor
 public class UserConverter implements Converter<String, User> {
-
+    @Autowired
     private UserRepository userRepository;
 
     @Override

@@ -13,8 +13,9 @@
     </section>
 </section>
 
-<h1>Lista aut</h1>
-<table border="2">
+<h1>Lista kart paliwowych</h1>
+<div class="table-container">
+    <table border="2" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
     <tr>
         <td>Id</td>
         <td>Numer karty</td>
@@ -34,7 +35,7 @@
         </tr>
     </c:forEach>
 </table>
-
+</div>
 <footer class="footer">
     <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
 </footer>

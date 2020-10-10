@@ -1,6 +1,5 @@
 package pl.kamilracki.flota.controllers;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,14 +56,21 @@ public class CarController {
             return "cars/form";
         }
         carService.saveCar(car);
-        return "redirect:/cars/all";
+        return "cars/allDetails";
     }
 
     @RequestMapping("/all")
     public String getAll(Model model) {
         List<Car> cars = carService.findAll();
         model.addAttribute("cars", cars);
-        return "cars/all";
+        return "cars/showAll";
+    }
+
+    @RequestMapping("/allDetails/{id}")
+    public String getAllDetails(@PathVariable long id, Model model) {
+        Car car = carService.findById(id);
+        model.addAttribute("car", car);
+        return "cars/allDetails";
     }
 
     @GetMapping("/connect/{id}")
@@ -77,10 +83,9 @@ public class CarController {
     @PostMapping("/connect/{id}")
     public String addToCar(@Valid Car car, BindingResult result) {
         if (result.hasErrors()) {
-            return "cars/all";
+            return "redirect:/cars/allDetails/" + car.getId();
         }
         Car updatedCar = carService.findById(car.getId());
-        updatedCar.setFleetCard(car.getFleetCard());
         updatedCar.setUser(car.getUser());
         carService.saveCar(updatedCar);
         return "redirect:/cars/all";

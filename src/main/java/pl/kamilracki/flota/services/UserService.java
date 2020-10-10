@@ -2,14 +2,11 @@ package pl.kamilracki.flota.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.kamilracki.flota.models.entities.User;
 import pl.kamilracki.flota.repositories.UserRepository;
 
-import javax.security.auth.message.AuthException;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -18,12 +15,10 @@ import java.util.List;
 @Transactional
 public class UserService {
 
-    private UserRepository userRepository;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     public User findUserByPhoneNumber(String phoneNumber) {

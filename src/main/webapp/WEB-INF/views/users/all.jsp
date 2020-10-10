@@ -12,8 +12,10 @@
         <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
     </section>
 </section>
+<div class="container has-text-centered">
 <h1>Lista użytkowników</h1>
-<table border="2">
+    <div class="table-container">
+        <table border="2" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
     <tr>
         <td>Id</td>
         <td>Numer rejestracyjny</td>
@@ -33,7 +35,8 @@
         </tr>
     </c:forEach>
 </table>
-
+</div>
+</div>
 <footer class="footer">
     <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
 </footer>

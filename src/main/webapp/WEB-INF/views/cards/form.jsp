@@ -27,12 +27,6 @@
         <form:options items="${cars}" itemValue="id" itemLabel="carDetails.licensePlate"/>
     </form:select><br>
     <form:errors path="car.carDetails.licensePlate" cssClass="error"/><br>
-    Imię i nazwisko użytkownika karty/pojazdu:
-    <form:select path="user">
-        <form:option value="0" label="wybierz właściciela"/>
-        <form:options items="${users}" itemValue="id" itemLabel="fullName"/>
-    </form:select><br>
-    <form:errors path="user" cssClass="error"/><br>
     Numer karty:
     <form:input path="cardNumber"/><br>
     <form:errors path="cardNumber" cssClass="error"/><br>

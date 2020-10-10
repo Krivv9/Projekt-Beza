@@ -20,14 +20,11 @@
             to to zmień lub zarejestruj konto. Konto Admina<br>
             jest zajęte.<br><br>
 
-            <sec:authorize access="hasRole('USER')"> Informacja tylko dla zalogowanych </sec:authorize>
-            Witaj ${userLogin}, co chcesz zrobić<br><br>
+            Witaj
+            <c:if test="${empty userLogin}">jesteś nie zalogowany</c:if>${userLogin} co chcesz zrobić<br><br>
             <a href="<c:url value="/cars/all"/>">Auta</a><br>
             <a href="<c:url value="/monthUses/add/1"/>">Formularz miesięcznego zużycia paliwa</a><br>
-
-            <sec:authorize access="hasRole('ADMIN')">
             <a href="<c:url value="/admin/home"/>">Panel admina</a><br>
-            </sec:authorize>
 
             <footer class="footer">
                 <jsp:include page="/WEB-INF/views/page/footer.jsp"/>

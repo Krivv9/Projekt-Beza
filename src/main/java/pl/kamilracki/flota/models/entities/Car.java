@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,7 +42,8 @@ public class Car extends BaseEntity {
             this.acPolicyExpireDate = new SimpleDateFormat("yyyy-MM-dd").parse(acPolicyExpireDate);
         } catch (ParseException e) {
             e.printStackTrace();
-        }    }
+        }
+    }
 
     @Column(name = "next_tech_insp_date")
     private Date nextTechnicalInspectionDate;
@@ -67,5 +69,5 @@ public class Car extends BaseEntity {
     private User user;
 
     @OneToMany(mappedBy = "car")
-    private List<FleetCard> fleetCard = new ArrayList<>();
+    private List<FleetCard> fleetCard;
 }

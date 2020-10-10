@@ -12,9 +12,13 @@
         <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
     </section>
 </section>
+<section class="section">
+        <div class="container has-text-centered">
 <h1>Lista aut</h1><br>
-<a href="/cars/add">Dodaj auto</a>
-<table border="1">
+<a class="button is-link - is-rounded" href="/cars/add">Dodaj auto</a><br>
+        </div>
+    <div class="table-container">
+<table border="1" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
     <tr>
         <td>Id</td>
         <td>Właściciel pojazdu</td>
@@ -40,7 +44,6 @@
         <td>Akcję, Linki</td>
 
     </tr>
-    <c:forEach items="${cars}" var="car">
         <tr>
             <td>${car.id}</td>
             <td>${car.user.fullName}</td>
@@ -68,13 +71,17 @@
             <td>${car.nextTechnicalInspectionDate}</td>
             <td>${car.comments}</td>
             <td>
-                <a href="/cars/connect/${car.id}">Dodaj/zmień użytkownika</a>
-                <a href="/monthUses/add/${car.id}">Miesięczne zużycie paliwa auta</a>
-                <a href="/cards/add/${car.id}">Dodaj zmień kartę paliwową</a>
+                <a class="button is-danger is-rounded" href="/cars/connect/${car.id}">Dodaj/zmień użytkownika</a><br>
+                <a class="button is-warning is-rounded" href="/monthUses/add/${car.id}">Miesięczne zużycie paliwa auta</a><br>
+                <a class="button is-success is-rounded" href="/cards/add/${car.id}">Dodaj zmień kartę paliwową</a><br>
             </td>
         </tr>
-    </c:forEach>
 </table>
+                </div>
+            </div>
+            </div>
+        </div>
+</section>
 
 <footer class="footer">
     <jsp:include page="/WEB-INF/views/page/footer.jsp"/>

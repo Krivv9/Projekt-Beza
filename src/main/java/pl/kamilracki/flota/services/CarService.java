@@ -19,10 +19,9 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional
-@RequiredArgsConstructor
 public class CarService {
-    private CarRepository carRepository;
-    private UserService userService;
+    private final CarRepository carRepository;
+    private final UserService userService;
 
     public CarService(CarRepository carRepository, UserService userService) {
         this.carRepository = carRepository;

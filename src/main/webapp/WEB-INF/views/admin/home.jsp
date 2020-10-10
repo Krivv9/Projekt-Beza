@@ -12,13 +12,13 @@
         <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
     </section>
 </section>
-
+<div class="container has-text-centered">
 <br><h1>Panel Administratora ${name}</h1><br>
 <a href="<c:url value="/cars/all"/>">Auta</a><br>
 <a href="<c:url value="/users/all"/>">Użytkownicy</a><br>
-<a href="<c:url value="/monthUses/all"/>">Zużycie miesięczne</a><br>
+<a href="<c:url value="/monthUses/all/1"/>">Zużycie miesięczne</a><br>
 <a href="<c:url value="/cards/all"/>">Karty flotowe</a><br>
-
+</div>
 <footer class="footer">
     <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
 </footer>

@@ -30,7 +30,7 @@
                     </div>
                     <div class="control">
                         <button type="submit" class="button is-link is-primary is-fullwidth">Loguj</button>
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/><br>
                     </div>
                     <a href="/registration">Jeszcze nie masz konta, Zarejstruj się</a>
                 </form>

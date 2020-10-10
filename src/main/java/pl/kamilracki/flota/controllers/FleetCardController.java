@@ -1,6 +1,5 @@
 package pl.kamilracki.flota.controllers;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,13 +15,18 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Controller
 @RequestMapping("/cards")
 public class FleetCardController {
     private final FleetCardService fleetCardService;
     private final UserService userService;
     private final CarService carService;
+
+    public FleetCardController(FleetCardService fleetCardService, UserService userService, CarService carService) {
+        this.fleetCardService = fleetCardService;
+        this.userService = userService;
+        this.carService = carService;
+    }
 
     @ModelAttribute("cars")
     public List<Car> getAllCars() { return carService.findAll(); }
@@ -50,7 +54,7 @@ public class FleetCardController {
         carService.addCard(fleetCard.getCar(),cards);
         carService.addUser(fleetCard.getCar(),cardUser);
 
-        return "redirect:/cars/all";
+        return "cars/allDetails";
     }
 
     @GetMapping("add/{id}")
@@ -63,20 +67,13 @@ public class FleetCardController {
     }
 
     @PostMapping("/add/{id}")
-    public String saveCardToCar(@Valid FleetCard fleetCard, BindingResult result) {
+    public String saveCardToCar(@PathVariable Long id, @Valid FleetCard fleetCard, BindingResult result) {
         if (result.hasErrors()) {
             return "cards/form";
         }
-        fleetCardService.saveCard(fleetCard);
-        User cardUser = fleetCard.getUser();
-        cardUser.setCar(fleetCard.getCar());
-        cardUser.setFleetCard(fleetCard);
-        List<FleetCard> cards = new ArrayList<>();
-        cards.add(fleetCard);
-        carService.addCard(fleetCard.getCar(), cards);
-        carService.addUser(fleetCard.getCar(), cardUser);
-
-        return "redirect:/cards/all";
+        Car updatedCar = carService.findById(fleetCard.getCar().getId());
+        fleetCardService.saveCarToCard(fleetCard, updatedCar);
+        return "redirect:/cars/all";
     }
 
     @RequestMapping("/all")
