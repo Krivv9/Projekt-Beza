@@ -25,8 +25,20 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-light" href="/login">Logowanie</a>
                             <a class="button is-primary" href="/registration">Rejestracja</a>
+                            <a class="button is-light" href="/login">Logowanie</a>
+                            <a class="button is-link is-primary is-success" href="/logout-confirm">Wylogowanie</a>
+                            <c:choose>
+                                <c:when test="${login =='anonymousUser'}">
+                                    Witaj
+                                </c:when>
+                                <c:when test="${login == null}">
+                                  Witam
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="container level-right">Witaj ${login}</div>                            </c:otherwise>
+                            </c:choose>
+
                         </div>
                     </div>
             </div>

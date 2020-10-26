@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.kamilracki.flota.models.entities.Car;
 import pl.kamilracki.flota.models.entities.FleetCard;
+import pl.kamilracki.flota.models.entities.GetName;
 import pl.kamilracki.flota.models.entities.User;
 import pl.kamilracki.flota.services.CarService;
 import pl.kamilracki.flota.services.FleetCardService;
@@ -34,27 +35,22 @@ public class FleetCardController {
     @ModelAttribute("users")
     public List<User> getAllUsers() { return userService.findAll(); }
 
+    @ModelAttribute("login")
+    public String loginUser() { return GetName.getLoginName();}
+
     @GetMapping("/add")
     public String addFleetCard(Model model) {
         model.addAttribute("card", new FleetCard());
-        return "cards/form";
+        return "cards/add";
     }
 
     @PostMapping("/add")
     public String saveCard(@Valid FleetCard fleetCard, BindingResult result) {
         if (result.hasErrors()) {
-            return "cards/form";
+            return "cards/add";
         }
         fleetCardService.saveCard(fleetCard);
-        User cardUser = fleetCard.getUser();
-        cardUser.setCar(fleetCard.getCar());
-        cardUser.setFleetCard(fleetCard);
-        List<FleetCard> cards = new ArrayList<>();
-        cards.add(fleetCard);
-        carService.addCard(fleetCard.getCar(),cards);
-        carService.addUser(fleetCard.getCar(),cardUser);
-
-        return "cars/allDetails";
+        return "redirect:/cards/all";
     }
 
     @GetMapping("add/{id}")

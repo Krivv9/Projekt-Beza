@@ -5,10 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.kamilracki.flota.models.entities.Car;
-import pl.kamilracki.flota.models.entities.FleetCard;
-import pl.kamilracki.flota.models.entities.MonthUse;
-import pl.kamilracki.flota.models.entities.User;
+import pl.kamilracki.flota.models.entities.*;
 import pl.kamilracki.flota.services.CarService;
 import pl.kamilracki.flota.services.FleetCardService;
 import pl.kamilracki.flota.services.MonthUseService;
@@ -43,6 +40,9 @@ public class CarController {
 
     @ModelAttribute("users")
     public List<User> getAllUsers() { return userService.findAll(); }
+
+    @ModelAttribute("login")
+    public String loginUser() { return GetName.getLoginName();}
 
     @GetMapping("/add")
     public String addCar(Model model) {

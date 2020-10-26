@@ -15,8 +15,9 @@
 <section class="section">
         <div class="container has-text-centered">
 <h1>Lista aut</h1><br>
-<a class="button is-link - is-rounded" href="/cars/add">Dodaj auto</a><br>
+<a class="button is-link - is-rounded" href="/cars/add">Dodaj auto</a>
         </div>
+    <br>
     <div class="table-container">
 <table border="1" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
     <tr>

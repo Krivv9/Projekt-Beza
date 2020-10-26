@@ -15,15 +15,16 @@
 </section>
 <section class="section">
     <div class="container has-text-centered">
-        <h1>Strona poświęcona zarządzaniu flotą aut. <br>
+        <h1><b>
+            <c:if test="${login =='anonymousUser'}">Witaj jesteś nie zalogowany</c:if>
+        </b></h1> <br><br>
+
+            Strona poświęcona zarządzaniu flotą aut. <br>
             Jeśli nie jesteś zalogowanym użytkownikiem <br>
             to to zmień lub zarejestruj konto. Konto Admina<br>
             jest zajęte.<br><br>
 
-            Witaj
-            <c:if test="${empty userLogin}">jesteś nie zalogowany</c:if>${userLogin} co chcesz zrobić<br><br>
-            <a href="<c:url value="/cars/all"/>">Auta</a><br>
-            <a href="<c:url value="/monthUses/add/1"/>">Formularz miesięcznego zużycia paliwa</a><br>
+
             <a href="<c:url value="/admin/home"/>">Panel admina</a><br>
 
             <footer class="footer">

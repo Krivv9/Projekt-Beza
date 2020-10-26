@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.kamilracki.flota.models.entities.GetName;
 import pl.kamilracki.flota.models.entities.User;
 import pl.kamilracki.flota.services.UserService;
 
@@ -19,7 +21,9 @@ import java.security.Principal;
 @Controller
 @RequiredArgsConstructor
 public class LoginController {
-    private UserService userService;
+
+    @ModelAttribute("login")
+    public String loginUser() { return GetName.getLoginName();}
 
     @GetMapping("/login")
     public String login() {

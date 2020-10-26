@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.kamilracki.flota.enums.Month;
 import pl.kamilracki.flota.models.entities.Car;
+import pl.kamilracki.flota.models.entities.GetName;
 import pl.kamilracki.flota.models.entities.MonthUse;
 import pl.kamilracki.flota.services.CarService;
 import pl.kamilracki.flota.services.MonthUseService;
@@ -21,6 +22,9 @@ import java.util.List;
 public class MonthUseController {
     private final MonthUseService monthUseService;
     private final CarService carService;
+
+    @ModelAttribute("login")
+    public String loginUser() { return GetName.getLoginName();}
 
     @ModelAttribute("months")
     public List<String> getAllMonths(){return Month.valueOf();}

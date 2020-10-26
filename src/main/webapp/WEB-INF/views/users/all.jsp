@@ -12,8 +12,17 @@
         <jsp:include page="/WEB-INF/views/page/nav.jsp"/>
     </section>
 </section>
-<div class="container has-text-centered">
-<h1>Lista użytkowników</h1>
+<section class="section">
+    <div class="container has-text-centered">
+        <h1><b>Lista użytkowników</b></h1><br>
+
+        <c:choose>
+        <c:when test="${login =='Remek'}">
+            <a class="button is-link is-rounded" href="/cars/add">Dodaj użytkownika</a>
+        </c:when>
+        </c:choose>
+    </div>
+    <br>
     <div class="table-container">
         <table border="2" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
     <tr>
@@ -37,6 +46,7 @@
 </table>
 </div>
 </div>
+</section>
 <footer class="footer">
     <jsp:include page="/WEB-INF/views/page/footer.jsp"/>
 </footer>

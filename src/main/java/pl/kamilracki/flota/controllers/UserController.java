@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.kamilracki.flota.models.entities.Car;
 import pl.kamilracki.flota.models.entities.FleetCard;
+import pl.kamilracki.flota.models.entities.GetName;
 import pl.kamilracki.flota.models.entities.User;
 import pl.kamilracki.flota.repositories.CarRepository;
 import pl.kamilracki.flota.repositories.FleetCardRepository;
@@ -63,6 +64,7 @@ public class UserController {
 
     @RequestMapping("/all")
     public String getAll(Model model) {
+        model.addAttribute("login", GetName.getLoginName());
         model.addAttribute("users", userService.findAll());
         return "users/all";
     }

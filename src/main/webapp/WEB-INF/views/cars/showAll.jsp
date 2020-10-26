@@ -15,8 +15,13 @@
 <section class="section">
     <div class="container has-text-centered">
         <h1><b>Lista aut</b></h1><br>
-        <a class="button is-link is-rounded" href="/cars/add">Dodaj auto</a><br>
+        <c:choose>
+            <c:when test="${login =='Remek'}">
+                <a class="button is-link is-rounded" href="/cars/add">Dodaj auto</a>
+            </c:when>
+        </c:choose>
     </div>
+    <br>
     <div class="table-container">
         <table border="3" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <tr>
@@ -41,19 +46,27 @@
                     </td>
                     <td>${car.carDetails.modelCar}</td>
                     <td>${car.carDetails.licensePlate}</td>
-                    <td><a class="button is-link" href="/cars/allDetails/${car.id}">Dane auta z dowodu</a> </td>
+                    <td><a class="button is-link" href="/cars/allDetails/${car.id}">Dane auta z dowodu</a></td>
                     <td>${car.comments}</td>
                     <td>
-                        <a class="button is-danger is-rounded" href="/cars/connect/${car.id}">Dodaj/zmień użytkownika</a><br>
-                        <a class="button is-warning is-rounded" href="/monthUses/add/${car.id}">Miesięczne zużycie paliwa auta</a><br>
-                        <a class="button is-success is-rounded" href="/cards/add/${car.id}">Dodaj zmień kartę paliwową</a><br>
+                        <c:choose>
+                            <c:when test="${login =='Remek'}">
+                                <a class="button is-danger is-rounded" href="/cars/connect/${car.id}">Dodaj/zmień
+                                    użytkownika</a><br>
+                                <a class="button is-warning is-rounded" href="/monthUses/add/${car.id}">Miesięczne
+                                    zużycie paliwa auta</a><br>
+                                <a class="button is-success is-rounded" href="/cards/add/${car.id}">Dodaj zmień kartę
+                                    paliwową</a><br>
+                            </c:when>
+                            <c:when test="${login != 'Remek'}">
+                                <a class="button is-warning is-rounded" href="/monthUses/add/${car.id}">Miesięczne
+                                    zużycie paliwa auta</a><br>
+                            </c:when>
+                        </c:choose>
                     </td>
                 </tr>
             </c:forEach>
         </table>
-    </div>
-    </div>
-    </div>
     </div>
 </section>
 
